@@ -1,4 +1,4 @@
-// our-domain.com/news/something-important 접속
+// our-domain.com/news/[newsId] 접속
 
 function DetailPage (){
 
