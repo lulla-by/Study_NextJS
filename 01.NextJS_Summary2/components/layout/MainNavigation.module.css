@@ -11,7 +11,8 @@
 .logo {
   font-size: 2rem;
   color: white;
-  font-weight: bold;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .header ul {
