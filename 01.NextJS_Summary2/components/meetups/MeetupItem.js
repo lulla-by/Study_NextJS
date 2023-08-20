@@ -1,7 +1,13 @@
 import Card from '../ui/Card';
 import classes from './MeetupItem.module.css';
+import { useRouter } from 'next/router';
 
 function MeetupItem(props) {
+  const router = useRouter();
+  function showDetailsHandler() {
+    // 페이지 스택에 새 페이지를 푸시, Link 컴포넌트를 사용했을 때와 동일한 동작을 구현
+    router.push(`/${props.id}`)
+  };
   return (
     <li className={classes.item}>
       <Card>
@@ -13,7 +19,7 @@ function MeetupItem(props) {
           <address>{props.address}</address>
         </div>
         <div className={classes.actions}>
-          <button>Show Details</button>
+          <button onClick={showDetailsHandler}>Show Details</button>
         </div>
       </Card>
     </li>
