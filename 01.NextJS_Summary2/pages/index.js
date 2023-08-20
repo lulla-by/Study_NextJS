@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
 import MeetupList from "../components/meetups/MeetupList";
 // import Layout from './../components/layout/Layout';
 
 function HomePage() {
-  const meetups = [
+  const DUMMY_MEETUPS = [
     {
       id: "m1",
       title: "A first tea party",
@@ -23,9 +24,16 @@ function HomePage() {
     },
 
   ]
+  const [loadedMeetups, setLoadedMeetups]=useState([])
+  useEffect(()=>{
+    // send a http request and fetch data
+    setLoadedMeetups(DUMMY_MEETUPS)
+    // 문제점
+    // 해당 데이터 페칭을 기다려서 전체 사전렌더링 페이지를 표시하는 것이 아니라 첫 번째 컴포넌트 렌더링 사이클의 결과만을 반환함
+  },[])
   return (
   // <Layout>
-    <MeetupList meetups={meetups} />
+    <MeetupList meetups={loadedMeetups} />
   // </Layout>
   )
 }
