@@ -40,7 +40,9 @@ return{
   props:{
     // 본페이지의 컴포넌트 함수가 전달받는 props
     meetups:DUMMY_MEETUPS
-  }
+  },
+  // 증분 정적 생성, 숫자가 필요함, 10 입력 => 10초마다 갱신된 페이지 표시
+  revalidate:10
 }
 }
 
