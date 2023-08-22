@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { useRouter } from 'next/router';
+import Head from "next/head";
 import { MongoClient,ObjectId  } from 'mongodb';
 import MeetupDetail from '../../components/meetups/MeetupDetails';
 
@@ -7,7 +8,13 @@ const MeetupDetails = (props) => {
   const {image,title,address,description} = JSON.parse(props.meetupData)
 
   return (
+    <Fragment>
+      <Head>
+        <title>{title}</title>
+        <meta name='description' content={description}/>
+      </Head>
       <MeetupDetail image={image} title={title} address={address} description={description} />
+    </Fragment>
   )
 
 }
