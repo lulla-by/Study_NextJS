@@ -4,6 +4,7 @@ import { MongoClient } from 'mongodb';
 import MeetupList from "../components/meetups/MeetupList";
 
 function HomePage(props) {
+  console.log(props)
   return (
     <Fragment>
       <Head>
@@ -11,7 +12,9 @@ function HomePage(props) {
         <title>React Meetups</title>
         <meta name="description" content="Browse a huge list of highly active React meetups!" />
       </Head>
-      <MeetupList meetups={props.meetups} />
+      {props.meetups.length > 1 &&  <MeetupList meetups={props.meetups} />}
+      {props.meetups.length < 1 &&  <div>no contents</div>}
+     
     </Fragment>
   )
 }
