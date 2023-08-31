@@ -1,23 +1,33 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import classes from "./Navbar.module.css"
 
 const Navbar = () => {
   const router = useRouter();
-  console.log(router.pathname);
   return (
     <nav>
-      <Link  href="/" className={`${classes.link} ${router.pathname === "/"?classes.active:""}`} >
-        <span >
+      <Link href="/"  legacyBehavior>
+        <a className={router.pathname === "/"?"active":""}>
           Home
-        </span>
+        </a>
       </Link>
-      <Link  href="/about" className={`${classes.link} ${router.pathname === "/about" ? classes.active:""}`} >
-        <span >
+      <Link href="/about"  legacyBehavior>
+        <a className={router.pathname === "/about"?"active":""}>
           About
-        </span>
+        </a>
       </Link>
+      {/* styled JSX를 사용했기 때문에 이 스타일들은 오직 이 컴포넌트 내부로 범위 한정 */}
+      <style jsx >{`
+      nav{
+        background-color:tomato
+      }
+      a{
+        text-decoration:none
+      }
+      .active{
+        color:yellow
+      }
+      `}</style>
     </nav>
   )
 }
