@@ -1,17 +1,10 @@
-import Navbar from "../components/Navbar"
-import { Fragment } from "react"
+import Layout from "@/components/Layout"
 
 const App = ({Component,pageProps}) => {
-  
-  return (<Fragment>
-    <Navbar/>
+  return (
+    <Layout>
     <Component {...pageProps}/>
-    <style jsx global>{`
-    a{
-      color:white;
-    }
-    `}</style>
-    </Fragment>
+    </Layout>
   )
 }
 
