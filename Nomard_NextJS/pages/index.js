@@ -1,7 +1,8 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import Navbar from './../components/Navbar';
 
-export default function Home(){
+export default function Home() {
   return <Fragment>
-    <h2>hi</h2>
+    <h1>Home</h1>
   </Fragment>
 }
